@@ -1,0 +1,70 @@
+<html>
+<head>
+<title> nextapp by omkar </title>
+<style>
+* {font-size:60px;}
+body{background-color:pink;}
+</style>
+<script>
+function show()
+{
+event.preventDefault();
+let name=document.getElementById("name");
+let job=document.getElementById("job");
+let ms=document.getElementById("ms");
+let mba=document.getElementById("mba");
+let ans=document.getElementById("ans");
+
+if( name.value=="")
+{
+alert("name is empty");
+ans.innerHTML="";
+name.focus();
+return;
+}
+else if (name.value.trim()=="")
+{
+alert(" name cannot be spaces");
+ans.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+else if (! name.value.match(/^[A-Za-z]+$/))
+{
+alert("name should only contain alpha");
+ans.innerHTML="";
+name.value="";
+name.focus();
+return;
+}
+let choice="";
+if (job.checked)       choice="job";
+else if (ms.checked)    choice="ms";
+else                  choice="mba";
+
+let msg="name=" + name.value +"choice="+choice;
+ans.innerHTML=msg;
+}
+</script>
+</head>
+<body>
+<center>
+<h1> next</h1>
+<form onsubmit="show()">
+<input type="text"   placeholder="enter your name"
+id="name"/>
+<br><br>
+<input type="radio" name="c" id="job"  checked=true/> job
+
+<input type="radio" name="c" id="ms"  checked=true/> ms
+
+<input type="radio" name="c" id="mba"  checked=true/> mba
+<br><br>
+<input type="submit"/>
+</form>
+<h1 id="ans"/>
+</center>
+</body>
+
+</html>
